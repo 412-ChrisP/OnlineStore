@@ -1,17 +1,17 @@
-# Project Title
+# Online Store Application
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+This application simulates an online store where users can view products, add them to a shopping cart, and manage their selections.
 
-![Class Diagram](path/to/your/class_diagram.png)
 
 ## User Stories
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a user, I want to view products, so I can choose what to buy.
+- As a user, I want to add products to my cart, so I can keep track of what to buy.
+- As a user, I want to view my cart, so I can see my selections before checking out.
 
 ## Setup
 
@@ -35,7 +35,10 @@ Follow these steps to get your application running within IntelliJ IDEA:
 ## Technologies Used
 
 - Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- import java.util.ArrayList;
+- import java.util.Scanner;
+- import java.io.BufferedReader;
+- import java.io.FileReader;
 
 ## Demo
 
@@ -47,8 +50,7 @@ Include screenshots or GIFs that show your application in action. Use tools like
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+- 
 
 ## Resources
 

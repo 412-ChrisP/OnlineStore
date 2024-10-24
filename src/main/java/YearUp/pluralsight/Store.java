@@ -135,6 +135,19 @@ public class Store
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount)
     {
+        if (cart.isEmpty())
+        {
+            System.out.println("No items in cart!");
+        }
+        else
+        {
+            for(Product product : cart)
+            {
+                totalAmount += product.getPrice();
+            }
+            System.out.printf("Total Amount: $%.2f%n", totalAmount);
+        }
+
         
         // This method should display the items in the cart ArrayList, along
         // with the total cost of all items in the cart. The method should
