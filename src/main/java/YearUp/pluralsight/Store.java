@@ -2,10 +2,13 @@ package YearUp.pluralsight;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
-public class Store {
-
+public class Store
+{
     public static void main(String[] args)
     {
         // Initialize variables
@@ -21,7 +24,8 @@ public class Store {
         int choice = -1;
 
         // Display menu and get user choice until they choose to exit
-        while (choice != 3) {
+        while (choice != 3)
+        {
             System.out.println("Welcome to the Online com.pluralsight.Store!");
             System.out.println("1. Show Products");
             System.out.println("2. Show Cart");
@@ -31,7 +35,8 @@ public class Store {
             scanner.nextLine();
 
             // Call the appropriate method based on user choice
-            switch (choice) {
+            switch (choice)
+            {
                 case 1:
                     displayProducts(inventory, cart, scanner);
                     break;
@@ -50,8 +55,39 @@ public class Store {
 
     public static void loadInventory(String fileName, ArrayList<Product> inventory)
     {
+        try
+        {
+            File file = new File(fileName);
+            String line;
 
+            if (!file.exists())
+            {
+                System.out.println("The file doesn't exist. Creating new file: " + fileName);
+                file.createNewFile();
+            }
 
+            FileReader fileReader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while ((line = bufferedReader.readLine()) != null)
+            {
+                String[] tokens = line.split("\\|"); // Split by pipe '|'
+
+                if (tokens.length == 4)
+                {
+                    String sku = tokens[0];
+                    String productName = tokens[1];
+                    double price = Double.parseDouble(tokens[2]);
+                    String department = tokens[3];
+
+                    inventory.add(new Product(sku, productName, price, department));
+                }
+            }
+        }catch (Exception e)
+            {
+                System.out.println("Error: " + e.getMessage());
+                e.printStackTrace();
+            }
         // This method should read a CSV file with product information and
         // populate the inventory ArrayList with Yearup.pluralsight.Product objects. Each line
         // of the CSV file contains product information in the following format:
@@ -64,7 +100,7 @@ public class Store {
 
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner)
     {
-
+        
 
         // This method should display a list of products from the inventory,
         // and prompt the user to add items to their cart. The method should
