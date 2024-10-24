@@ -42,7 +42,9 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-![Application Screenshot](path/to/your/screenshot.png)
+<img alt="Screenshot 2024-10-24 015212.png" src="Screenshot%202024-10-24%20015212.png"/>
+<img alt="Screenshot 2024-10-24 015231.png" src="Screenshot%202024-10-24%20015231.png"/>
+<img alt="Screenshot 2024-10-24 015736.png" src="Screenshot%202024-10-24%20015736.png"/>
 
 ## Future Work
 
@@ -51,6 +53,7 @@ Outline potential future enhancements or functionalities you might consider addi
 - add more methods of adding to cart
 - Add functionality for users to remove items from their cart.
 - add a more friendly UI
+- Checkout Method
 
 ## Team Members
 
