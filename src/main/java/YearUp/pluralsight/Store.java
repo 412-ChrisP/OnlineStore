@@ -116,7 +116,7 @@ public class Store
             }
 
             Product productAdd = findProductById(productSKU, inventory);
-            if (productAdd != null)
+            if(productAdd != null)
             {
                 cart.add(productAdd);
                 System.out.println(productAdd.getName() + " added to your cart.");
@@ -135,7 +135,7 @@ public class Store
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount)
     {
-
+        
         // This method should display the items in the cart ArrayList, along
         // with the total cost of all items in the cart. The method should
         // prompt the user to remove items from their cart by entering the ID
@@ -154,11 +154,17 @@ public class Store
 
     public static Product findProductById(String id, ArrayList<Product> inventory)
     {
-
+        for (Product product : inventory)
+        {
+            if (product.getSku().equalsIgnoreCase(id))
+            {
+                return product;
+            }
+        }
+        return null;
         // This method should search the inventory ArrayList for a product with
         // the specified ID, and return the corresponding com.pluralsight.Product object. If
         // no product with the specified ID is found, the method should return
         // null.
-        return null;
     }
 }
