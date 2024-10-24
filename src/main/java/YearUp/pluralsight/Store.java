@@ -2,10 +2,12 @@ package YearUp.pluralsight;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.*;
 
 public class Store {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // Initialize variables
         ArrayList<Product> inventory = new ArrayList<Product>();
         ArrayList<Product> cart = new ArrayList<Product>();
@@ -46,9 +48,12 @@ public class Store {
         }
     }
 
-    public static void loadInventory(String fileName, ArrayList<Product> inventory) {
+    public static void loadInventory(String fileName, ArrayList<Product> inventory)
+    {
+
+
         // This method should read a CSV file with product information and
-        // populate the inventory ArrayList with com.pluralsight.Product objects. Each line
+        // populate the inventory ArrayList with Yearup.pluralsight.Product objects. Each line
         // of the CSV file contains product information in the following format:
         //
         // id,name,price
@@ -57,7 +62,10 @@ public class Store {
         // price is a double value representing the price of the product
     }
 
-    public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
+    public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner)
+    {
+
+
         // This method should display a list of products from the inventory,
         // and prompt the user to add items to their cart. The method should
         // prompt the user to enter the ID of the product they want to add to
@@ -65,7 +73,9 @@ public class Store {
         // add the selected product to the cart ArrayList.
     }
 
-    public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
+    public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount)
+    {
+
         // This method should display the items in the cart ArrayList, along
         // with the total cost of all items in the cart. The method should
         // prompt the user to remove items from their cart by entering the ID
@@ -73,17 +83,22 @@ public class Store {
         // variable accordingly.
     }
 
-    public static void checkOut(ArrayList<Product> cart, double totalAmount) {
+    public static void checkOut(ArrayList<Product> cart, double totalAmount)
+    {
+
         // This method should calculate the total cost of all items in the cart,
         // and display a summary of the purchase to the user. The method should
         // prompt the user to confirm the purchase, and deduct the total cost
         // from their account if they confirm.
     }
 
-    public static Product findProductById(String id, ArrayList<Product> inventory) {
+    public static Product findProductById(String id, ArrayList<Product> inventory)
+    {
+
         // This method should search the inventory ArrayList for a product with
         // the specified ID, and return the corresponding com.pluralsight.Product object. If
         // no product with the specified ID is found, the method should return
         // null.
+        return null;
     }
 }
