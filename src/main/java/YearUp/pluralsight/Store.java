@@ -3,9 +3,7 @@ package YearUp.pluralsight;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 
 public class Store
 {
@@ -57,37 +55,30 @@ public class Store
     {
         try
         {
-            File file = new File(fileName);
             String line;
-
-            if (!file.exists())
-            {
-                System.out.println("The file doesn't exist. Creating new file: " + fileName);
-                file.createNewFile();
-            }
 
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while ((line = bufferedReader.readLine()) != null)
             {
-                String[] tokens = line.split("\\|"); // Split by pipe '|'
+                String[] tokens = line.split("\\|");
 
-                if (tokens.length == 4)
+                if (tokens.length == 3)
                 {
                     String sku = tokens[0];
                     String productName = tokens[1];
                     double price = Double.parseDouble(tokens[2]);
-                    String department = tokens[3];
 
-                    inventory.add(new Product(sku, productName, price, department));
+                    inventory.add(new Product(sku, productName, price));
                 }
             }
-        }catch (Exception e)
-            {
-                System.out.println("Error: " + e.getMessage());
-                e.printStackTrace();
-            }
+            bufferedReader.close();
+        }catch(Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
         // This method should read a CSV file with product information and
         // populate the inventory ArrayList with Yearup.pluralsight.Product objects. Each line
         // of the CSV file contains product information in the following format:
@@ -100,8 +91,41 @@ public class Store
 
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner)
     {
-        
+        if (inventory.isEmpty())
+        {
+            System.out.println("No products available in the inventory.");
+            return;
+        }
 
+        boolean running = true;
+
+        System.out.println("Product List:");
+        for (Product product : inventory)
+        {
+            System.out.println(product.toString());
+        }
+
+        while(running)
+        {
+            System.out.println("Enter the SKU or (X) to exit: ");
+            String productSKU = scanner.nextLine();
+
+            if (productSKU.equalsIgnoreCase("X"))
+            {
+                running = false;
+            }
+
+            Product productAdd = findProductById(productSKU, inventory);
+            if (productAdd != null)
+            {
+                cart.add(productAdd);
+                System.out.println(productAdd.getName() + " added to your cart.");
+            }
+            else
+            {
+                System.out.println("Product not found.");
+            }
+        }
         // This method should display a list of products from the inventory,
         // and prompt the user to add items to their cart. The method should
         // prompt the user to enter the ID of the product they want to add to
